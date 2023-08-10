@@ -1,0 +1,6 @@
+[
+    {"columnStart": 3, "columnEnd": 8, "rowStart": 1, "rowEnd": 3, "component": "Radar" },
+    {"columnStart": 17, "columnEnd": 22, "rowStart": 1, "rowEnd": 3, "component": "Bar" },
+    {"columnStart": 3, "columnEnd": 8, "rowStart": 4, "rowEnd": 6, "component": "Pie" },
+    {"columnStart": 17, "columnEnd": 22, "rowStart": 4, "rowEnd": 6, "component": "Line" }
+]
