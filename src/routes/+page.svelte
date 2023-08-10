@@ -1,6 +1,7 @@
 <script type="ts">
   import { onMount } from "svelte";
   import data from "../data.json";
+  import { generateRandomData } from "../routes/index";
 
   const components = {
     Radar: () => import("./../components/Radar.svelte"),
@@ -10,14 +11,18 @@
   };
 
   let gridItems = [];
-
+  
   onMount(() => {
-    gridItems = data.map((item) => ({
-      column: `${item.columnStart} / ${item.columnEnd}`,
-      row: `${item.rowStart} / ${item.rowEnd}`,
-      component: item.component,
-      instance: null,
-    }));
+    gridItems = data.map((item) => {
+      const chartData = generateRandomData(item.component); // Generate data based on component type
+      return {
+        column: `${item.columnStart} / ${item.columnEnd}`,
+        row: `${item.rowStart} / ${item.rowEnd}`,
+        component: item.component,
+        instance: null,
+        chartData: chartData, // Pass the generated data to the component
+      };
+    });
   });
 
 </script>
@@ -46,7 +51,7 @@
       {#await components[item.component]()}
         <p>Loading...</p>
       {:then Component}
-        <Component.default />
+        <Component.default chartData={item.chartData}/>
       {/await}
     </div>
   {/each}

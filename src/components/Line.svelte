@@ -1,13 +1,12 @@
 <script>
   import { onMount } from 'svelte';
   import Chart from 'chart.js/auto';
-  import { generateRandomData } from '../routes/index';
-
+ 
   function generateSingleRandomData() {
     return Math.floor(Math.random() * 100);
   }
 
-  let chartData = generateRandomData('line');
+  export let chartData;
   let chartInstance;
 
   onMount(() => {

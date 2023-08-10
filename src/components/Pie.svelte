@@ -1,9 +1,8 @@
 <script>
   import { onMount, onDestroy } from 'svelte';
   import Chart from 'chart.js/auto';
-  import { generateRandomData } from '../routes/index';
-
-  let chartData = generateRandomData('Pie');
+  
+  export let chartData ;
   let chartInstance;
 
   onMount(() => {
